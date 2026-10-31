@@ -12,4 +12,6 @@ function(rexhelpers_attach target)
   set(dir ${CMAKE_CURRENT_FUNCTION_LIST_DIR})
   target_sources(${target} PRIVATE ${dir}/src/config_path.cpp ${dir}/src/cvar_visibility.cpp ${dir}/src/guest_caller.cpp)
   target_include_directories(${target} PRIVATE ${dir}/include)
+  # For modules built on RexHelpers to check it's there.
+  set_property(TARGET ${target} PROPERTY REXHELPERS_ATTACHED TRUE)
 endfunction()
